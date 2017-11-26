@@ -1,6 +1,6 @@
 const server = require('server')
 const { get } = server.router;
-const { render } = server.reply;
+const { render, json } = server.reply;
 
 const mongoose = require('mongoose')
 mongoose.Promise = require('bluebird')
@@ -16,7 +16,7 @@ const getData = async (url) => {
 
 server({ port: 8080 }, [
     get('/', async ctx => render('index.html')),
-    get('/whois/:url', async ctx => await myAsyncFunction(ctx.params.url)) 
+    get('/whois/:url', async ctx => json( { "d" : await myAsyncFunction(ctx.params.url) } ))
     /*
     ctx => {
         console.log(ctx.params.url);  // hello
@@ -43,7 +43,7 @@ function myAsyncFunction(url) {
         }
         console.log("will OK")
         console.log(data);
-        resolve('<pre>' + data + '</pre>');
+        resolve(data);
     })
 })
 }
