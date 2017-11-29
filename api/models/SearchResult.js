@@ -5,13 +5,7 @@ const mongoose = require('mongoose')
 const SearchResultSchema = mongoose.Schema = {
 	requestUrl:  String,
 	response:  String,
-	request_date: String,
-	/*shape: String,
-	size: String,
-	smallPicLink: String,
-	bigPicLink: String,
-	tags: Array */
+	request_date: { type : Date, default: Date.now }
 }
 
 module.exports = mongoose.model('SearchResult', SearchResultSchema)
-///

@@ -1,0 +1,3 @@
+{ 
+    "mongoConnectionString" : "[ YOUR MONGO CONNECTION STRING ]" 
+}
