@@ -5,6 +5,7 @@ const { render, json } = server.reply;
 const mongoose = require('mongoose')
 mongoose.Promise = require('bluebird')
 const whois = require('node-whois')
+const config = require('./config.json')
 
 // connect to mongo
 mongoose.connect(config.mongoConnectionString, { useMongoClient: true })
