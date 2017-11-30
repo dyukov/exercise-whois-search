@@ -7774,13 +7774,13 @@ var WhoisSearchInput = function (_React$Component) {
       inputValue: 'google.com',
       whoisResult: ''
     };
-    _this.doSearch = _this.doSearch.bind(_this);
+    _this.requestWhois = _this.requestWhois.bind(_this);
     return _this;
   }
 
   _createClass(WhoisSearchInput, [{
-    key: 'doSearch',
-    value: function doSearch() {
+    key: 'requestWhois',
+    value: function requestWhois() {
       var _this2 = this;
 
       fetch('/whois/' + this.state.inputValue).then(function (result) {
@@ -7805,13 +7805,13 @@ var WhoisSearchInput = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'whoisSearch' },
+        { className: 'whoisSearchApp' },
         _react2.default.createElement('input', { type: 'text', value: this.state.inputValue, onChange: function onChange(evt) {
             return _this3.updateInputValue(evt);
           } }),
         _react2.default.createElement(
           'button',
-          { className: 'button', onClick: this.doSearch },
+          { className: 'button', onClick: this.requestWhois },
           ' search '
         ),
         _react2.default.createElement('hr', null),

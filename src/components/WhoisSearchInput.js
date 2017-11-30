@@ -8,7 +8,7 @@ class WhoisSearchInput extends React.Component {
       inputValue: 'google.com',
       whoisResult: ''
     };
-    this.doSearch = this.doSearch.bind(this);
+    this.requestWhois = this.requestWhois.bind(this);
   };
 
   requestWhois() {
@@ -33,7 +33,7 @@ class WhoisSearchInput extends React.Component {
 
   render() {
         return (
-            <div className='whoisSearch'>
+            <div className='whoisSearchApp'>
               <input type='text' value={ this.state.inputValue } onChange={ evt => this.updateInputValue(evt) } />
               <button className='button' onClick={ this.requestWhois } > search </button>
               <hr/>
