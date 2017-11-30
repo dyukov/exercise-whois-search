@@ -1,75 +1,27 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
-
-/*
-const WhoisSearchInput = ({ onClick, completed, text }) => (
-  <li
-    onClick={onClick}
-    style={ {
-      textDecoration: completed ? 'line-through' : 'none'
-    }}
-  >
-    {text}
-  </li>
-)
-
-/*
-Todo.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  completed: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired
-}
-*/ 
-
-// export default WhoisSearchInput
-
-
-
-
 
 class WhoisSearchInput extends React.Component {
   
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: 'pipi',
+      inputValue: 'google.com',
       whoisResult: ''
     };
     this.doSearch = this.doSearch.bind(this);
   };
 
-/*
-  render() {
-    return (
-      //...
-      <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>
-      //...
-    );
-  };
-
-*/
-  doSearch() {
-    console.log("doSsearch")
-
-    console.log("...will search : " + this.state.inputValue)
-    fetch('/whois/' +  this.state.inputValue)
+  requestWhois() {
+    fetch('/whois/' + this.state.inputValue)
     .then(result => 
-    {
-      console.log(result)
-      return result.json()
-    })
+      {
+        return result.json()
+      })
     .then(data => {
-
-    console.log("fetch done");
-    console.log(data)
-    console.log(data.body)
       this.setState({
-        whoisResult: data.d
-      });
-
-
+          whoisResult: data.d
+        });
     })
-    //})
   };
 
 
@@ -81,15 +33,15 @@ class WhoisSearchInput extends React.Component {
 
   render() {
         return (
-            <div className="App">
-                <input value={ this.state.inputValue } onChange={ evt => this.updateInputValue(evt) }/>
-                <span onClick={ this.doSearch } > search </span>
-                <hr/>
-                <div>
-                  <pre>
-                    { this.state.whoisResult }
-                  </pre>
-                </div>
+            <div className='whoisSearch'>
+              <input type='text' value={ this.state.inputValue } onChange={ evt => this.updateInputValue(evt) } />
+              <button className='button' onClick={ this.requestWhois } > search </button>
+              <hr/>
+              <div>
+                <pre>
+                  { this.state.whoisResult }
+                </pre>
+              </div>
             </div>
         )
     }

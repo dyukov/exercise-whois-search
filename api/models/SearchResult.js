@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 	Search Result Schema
 */
 const SearchResultSchema = mongoose.Schema = {
-	requestUrl:  String,
-	response:  String,
+	requestUrl: { type: String, lowercase: true, trim: true },
+	response: String,
 	request_date: { type : Date, default: Date.now }
 }
 

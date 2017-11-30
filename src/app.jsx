@@ -1,10 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-// import { Provider } from 'react-redux'
-// import { createStore } from 'redux'
-// import todoApp from './reducers'
 import WhoisSearchInput from './components/WhoisSearchInput'
-
 
 class App extends React.Component {
   render () {
@@ -16,4 +12,4 @@ class App extends React.Component {
   }
 }
 
-render(<App />, document.getElementById('myApp'));
+render(<App />, document.getElementById('whoisSearchApp'));

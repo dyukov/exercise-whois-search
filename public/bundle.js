@@ -964,10 +964,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import { Provider } from 'react-redux'
-// import { createStore } from 'redux'
-// import todoApp from './reducers'
-
 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
@@ -992,7 +988,7 @@ var App = function (_React$Component) {
   return App;
 }(_react2.default.Component);
 
-(0, _reactDom.render)(_react2.default.createElement(App, null), document.getElementById('myApp'));
+(0, _reactDom.render)(_react2.default.createElement(App, null), document.getElementById('whoisSearchApp'));
 
 /***/ }),
 /* 15 */
@@ -7766,31 +7762,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import PropTypes from 'prop-types'
-
-/*
-const WhoisSearchInput = ({ onClick, completed, text }) => (
-  <li
-    onClick={onClick}
-    style={ {
-      textDecoration: completed ? 'line-through' : 'none'
-    }}
-  >
-    {text}
-  </li>
-)
-
-/*
-Todo.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  completed: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired
-}
-*/
-
-// export default WhoisSearchInput
-
-
 var WhoisSearchInput = function (_React$Component) {
   _inherits(WhoisSearchInput, _React$Component);
 
@@ -7800,7 +7771,7 @@ var WhoisSearchInput = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (WhoisSearchInput.__proto__ || Object.getPrototypeOf(WhoisSearchInput)).call(this, props));
 
     _this.state = {
-      inputValue: 'pipi',
+      inputValue: 'google.com',
       whoisResult: ''
     };
     _this.doSearch = _this.doSearch.bind(_this);
@@ -7809,37 +7780,16 @@ var WhoisSearchInput = function (_React$Component) {
 
   _createClass(WhoisSearchInput, [{
     key: 'doSearch',
-
-
-    /*
-      render() {
-        return (
-          //...
-          <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>
-          //...
-        );
-      };
-    
-    */
     value: function doSearch() {
       var _this2 = this;
 
-      console.log("doSsearch");
-
-      console.log("...will search : " + this.state.inputValue);
       fetch('/whois/' + this.state.inputValue).then(function (result) {
-        console.log(result);
         return result.json();
       }).then(function (data) {
-
-        console.log("fetch done");
-        console.log(data);
-        console.log(data.body);
         _this2.setState({
           whoisResult: data.d
         });
       });
-      //})
     }
   }, {
     key: 'updateInputValue',
@@ -7855,13 +7805,13 @@ var WhoisSearchInput = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'App' },
-        _react2.default.createElement('input', { value: this.state.inputValue, onChange: function onChange(evt) {
+        { className: 'whoisSearch' },
+        _react2.default.createElement('input', { type: 'text', value: this.state.inputValue, onChange: function onChange(evt) {
             return _this3.updateInputValue(evt);
           } }),
         _react2.default.createElement(
-          'span',
-          { onClick: this.doSearch },
+          'button',
+          { className: 'button', onClick: this.doSearch },
           ' search '
         ),
         _react2.default.createElement('hr', null),
