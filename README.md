@@ -8,11 +8,22 @@ Make a simple app that has a domain name search. The user inputs a domain name f
 
 ## How to run:
 Get the source code
+
+Add MongoDB Connection String to config.json
+```
+{ 
+    "mongoConnectionString" : "[ MONGO CONNECTION STRING ]" 
+}
+```
+
+
 Execute:
-'''
+
+```
 npm install
 node .
-'''
+```
+
 open 127.0.0.1:8080
 
 ## Possible improvements
