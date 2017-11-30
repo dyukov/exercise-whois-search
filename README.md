@@ -27,6 +27,7 @@ node .
 open 127.0.0.1:8080
 
 ## Possible improvements
+* Unit-tests (using Jest or Mocha)
 * Improve UI
 * Add statistics for requests
 * Protect API
